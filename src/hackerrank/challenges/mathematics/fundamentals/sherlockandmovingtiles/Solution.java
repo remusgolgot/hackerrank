@@ -5,9 +5,9 @@ import java.util.Scanner;
 /**
  * https://www.hackerrank.com/challenges/sherlock-and-moving-tiles
  *
- Sherlock is given square tiles, initially both of whose sides have length L placed in an xOy plane,
- so that the left bottom of each square coincides with the the origin and their sides are parallel to the axes.
- At t=0 , both squares start moving along line y = x (along the positive x and y) with velocities s1 and s2 .
+ Sherlock is given 2 square tiles, both of whose sides have length L, placed in an xOy plane,
+ so that the left bottom of each square coincides with the origin and their sides are parallel to the axes.
+ At t = 0 , both squares start moving along the line y = x (along the positive x and y) with velocities s1 and s2 .
  For each query of form qi, Sherlock has to report the time at which the overlapping area of tiles is equal to qi.
  */
 public class Solution {
@@ -24,12 +24,6 @@ public class Solution {
         scanner.nextLine();
         for (int i = 0; i < nrTests; i++) {
             int q = Integer.parseInt(scanner.nextLine());
-            if (s1 == s2) {
-                System.out.println(-1);
-            }
-            if (q > length * length) {
-                System.out.println(-1);
-            }
             System.out.println(Math.abs(Math.sqrt(2) * (length - Math.sqrt(q)) / (s2 - s1)));
         }
     }
