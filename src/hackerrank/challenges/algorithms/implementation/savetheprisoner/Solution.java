@@ -2,6 +2,11 @@ package hackerrank.challenges.algorithms.implementation.savetheprisoner;
 
 import java.util.Scanner;
 
+/**
+ * https://www.hackerrank.com/challenges/save-the-prisoner
+ *
+ */
+
 public class Solution {
 
     public static void main(String[] args) {

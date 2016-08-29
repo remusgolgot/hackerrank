@@ -2,6 +2,11 @@ package hackerrank.challenges.algorithms.implementation.cutthesticks;
 
 import java.util.Scanner;
 
+/**
+ * https://www.hackerrank.com/challenges/cut-the-sticks
+ *
+ */
+
 public class Solution {
 
     public static void main(String[] args) {
