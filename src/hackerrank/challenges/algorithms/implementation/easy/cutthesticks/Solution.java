@@ -1,10 +1,9 @@
-package hackerrank.challenges.algorithms.implementation.cutthesticks;
+package hackerrank.challenges.algorithms.implementation.easy.cutthesticks;
 
 import java.util.Scanner;
 
 /**
  * https://www.hackerrank.com/challenges/cut-the-sticks
- *
  */
 
 public class Solution {

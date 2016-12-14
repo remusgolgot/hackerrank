@@ -2,12 +2,12 @@ package hackerrank.challenges.mathematics.probability.binomialdistribution1;
 
 /**
  * https://www.hackerrank.com/challenges/binomial-distribution-1
- *
- A blindfolded marksman finds that on the average he hits the target 4 times out of 5.
-
- If he fires 4 shots, what is the probability of :
- a) more than 2 hits?
- b) at least 3 misses?
+ * <p>
+ * A blindfolded marksman finds that on the average he hits the target 4 times out of 5.
+ * <p>
+ * If he fires 4 shots, what is the probability of :
+ * a) more than 2 hits?
+ * b) at least 3 misses?
  */
 
 public class Solution {

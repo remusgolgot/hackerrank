@@ -1,10 +1,9 @@
-package hackerrank.challenges.algorithms.implementation.savetheprisoner;
+package hackerrank.challenges.algorithms.implementation.easy.savetheprisoner;
 
 import java.util.Scanner;
 
 /**
  * https://www.hackerrank.com/challenges/save-the-prisoner
- *
  */
 
 public class Solution {

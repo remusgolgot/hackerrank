@@ -2,13 +2,13 @@ package hackerrank.challenges.mathematics.probability.binomialdistribution3;
 
 /**
  * https://www.hackerrank.com/challenges/binomial-distribution-3
- *
- A manufacturer of metal pistons finds that on average, 12% of his pistons are rejected because they are either oversized or undersized.
- What is the probability that a batch of 10 pistons will contain:
-
-(a) no more than 2 rejects? = p0 + p1 + p2 = 0.891
-
-(b) at least 2 rejects? = 1 - ( p0 + p1 ) = 0.342
+ * <p>
+ * A manufacturer of metal pistons finds that on average, 12% of his pistons are rejected because they are either over sized or under sized.
+ * What is the probability that a batch of 10 pistons will contain:
+ * <p>
+ * (a) no more than 2 rejects? = p0 + p1 + p2 = 0.891
+ * <p>
+ * (b) at least 2 rejects? = 1 - ( p0 + p1 ) = 0.342
  */
 
 public class Solution {

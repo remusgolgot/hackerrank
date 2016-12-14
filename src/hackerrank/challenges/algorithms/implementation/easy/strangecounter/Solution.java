@@ -1,10 +1,9 @@
-package hackerrank.challenges.algorithms.implementation.strangecounter;
+package hackerrank.challenges.algorithms.implementation.easy.strangecounter;
 
 import java.util.Scanner;
 
 /**
  * https://www.hackerrank.com/challenges/strange-code
- *
  */
 
 public class Solution {

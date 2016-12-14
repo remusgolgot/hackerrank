@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 /**
  * https://www.hackerrank.com/challenges/sherlock-and-moving-tiles
- *
- Sherlock is given 2 square tiles, both of whose sides have length L, placed in an xOy plane,
- so that the left bottom of each square coincides with the origin and their sides are parallel to the axes.
- At t = 0 , both squares start moving along the line y = x (along the positive x and y) with velocities s1 and s2 .
- For each query of form qi, Sherlock has to report the time at which the overlapping area of tiles is equal to qi.
+ * <p>
+ * Sherlock is given 2 square tiles, both of whose sides have length L, placed in an xOy plane,
+ * so that the left bottom of each square coincides with the origin and their sides are parallel to the axes.
+ * At t = 0 , both squares start moving along the line y = x (along the positive x and y) with velocities s1 and s2 .
+ * For each query of form qi, Sherlock has to report the time at which the overlapping area of tiles is equal to qi.
  */
 public class Solution {
 

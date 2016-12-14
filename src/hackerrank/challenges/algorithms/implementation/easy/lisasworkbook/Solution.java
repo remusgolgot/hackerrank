@@ -1,10 +1,9 @@
-package hackerrank.challenges.algorithms.implementation.lisasworkbook;
+package hackerrank.challenges.algorithms.implementation.easy.lisasworkbook;
 
 import java.util.Scanner;
 
 /**
  * https://www.hackerrank.com/challenges/lisa-workbook
- *
  */
 
 public class Solution {
@@ -18,14 +17,14 @@ public class Solution {
         for (int i = 0; i < n; i++) {
             t[i] = scanner.nextInt();
         }
-        int specials=0;
-        int page=1;
+        int specials = 0;
+        int page = 1;
         for (int i = 0; i < n; i++) {
-            int problem=1;
-            while(problem<t[i]) {
-                if (problem==page)
+            int problem = 1;
+            while (problem < t[i]) {
+                if (problem == page)
                     specials++;
-                if (problem%k==0)
+                if (problem % k == 0)
                     page++;
                 problem++;
             }
