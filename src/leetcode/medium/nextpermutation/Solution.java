@@ -18,11 +18,11 @@ public class Solution {
         int i = A.length - 2;
         while (i >= 0 && A[i] >= A[i + 1]) i--; // Find 1st id i that breaks descending order
         if (i >= 0) {                           // If not entirely descending
-            int j = A.length - 1;              // Start from the end
+            int j = A.length - 1;               // Start from the end
             while (A[j] <= A[i]) j--;           // Find rightmost first larger id j
-            swap(A, i, j);                     // Switch i and j
+            swap(A, i, j);                      // Switch i and j
         }
-        reverse(A, i + 1, A.length - 1);       // Reverse the descending sequence
+        reverse(A, i + 1, A.length - 1);        // Reverse the descending sequence
 
         for (int j = 0; j < A.length; j++) {
             System.out.println(A[j]);

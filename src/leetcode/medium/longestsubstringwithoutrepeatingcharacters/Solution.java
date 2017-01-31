@@ -59,7 +59,7 @@ public class Solution {
             }
             map.put(s.charAt(i), i);
             max = Math.max(max, i - j + 1);
-            System.out.println(i + " " + j + " " + max);
+            //System.out.println(i + " " + j + " " + max);
         }
         return max;
     }
