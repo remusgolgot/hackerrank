@@ -8,12 +8,13 @@ package algorithms.binarySearch;
 public class Solution {
 
     public static void main(String[] args) {
-        System.out.println(binarySearch(0, 5, 8, new int[] {0, 4, 7, 11, 13 }));
-        System.out.println(binarySearch(0, 5, 9, new int[] {0, 4, 7, 11, 13 }));
-        System.out.println(binarySearch(0, 5, 6, new int[] {0, 4, 7, 11, 13 }));
-        System.out.println(binarySearch(0, 5, 7, new int[] {0, 4, 7, 11, 13 }));
-        System.out.println(binarySearch(0, 5, 0, new int[] {0, 4, 7, 11, 13 }));
-        System.out.println(binarySearch(0, 5, 13, new int[] {0, 4, 7, 11, 13 }));
+        System.out.println(binarySearch(0, 1, 5, new int[] {0, 4}));
+        System.out.println(binarySearch(0, 4, 8, new int[] {0, 4, 7, 11, 13 }));
+        System.out.println(binarySearch(0, 4, 9, new int[] {0, 4, 7, 11, 13 }));
+        System.out.println(binarySearch(0, 4, 6, new int[] {0, 4, 7, 11, 13 }));
+        System.out.println(binarySearch(0, 4, 7, new int[] {0, 4, 7, 11, 13 }));
+        System.out.println(binarySearch(0, 4, 0, new int[] {0, 4, 7, 11, 13 }));
+        System.out.println(binarySearch(0, 4, 13, new int[] {0, 4, 7, 11, 13 }));
     }
 
     private static boolean binarySearch(int l, int r, int elem, int[] arr) {
