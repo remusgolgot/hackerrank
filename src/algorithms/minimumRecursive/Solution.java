@@ -7,12 +7,10 @@ package algorithms.minimumRecursive;
 public class Solution {
 
     public static void main(String[] args) {
-        System.out.println(minimumRecursive(0, new int[]{}));
+        System.out.println(minimumRecursive(0, new int[]{4, 1, 2, 3}));
     }
 
     private static int minimumRecursive(int pos, int[] arr) {
-
-        if (arr.length == 0 ) return Integer.MIN_VALUE;
 
         if (pos == arr.length - 1) return arr[pos];
 

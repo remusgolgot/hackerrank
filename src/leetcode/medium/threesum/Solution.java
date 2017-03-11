@@ -10,7 +10,13 @@ import java.util.List;
  * https://leetcode.com/problems/3sum
  */
 public class Solution {
-    public List<List<Integer>> threeSum(int[] nums) {
+
+
+    public static void main(String[] args) {
+        List list = threeSum(new int[]{1, 7, 8, 9, -4, -4});
+    }
+
+    public static List<List<Integer>> threeSum(int[] nums) {
 
         List<List<Integer>> result = new ArrayList<>();
         if (nums.length < 3) return result;
@@ -19,7 +25,6 @@ public class Solution {
 
         while (i < nums.length - 2) {
 
-            if (nums[i] > 0) break;
             int j = i + 1;
             int k = nums.length - 1;
             while (j < k) {

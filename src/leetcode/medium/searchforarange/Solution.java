@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class Solution {
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(searchRange(new int[]{4, 5, 7, 8, 8, 9, 10}, 8)));
+        System.out.println(Arrays.toString(searchRange(new int[]{4, 5, 7, 8, 8, 8, 8, 8, 9, 10}, 8)));
     }
 
     private static int[] searchRange(int[] nums, int target) {
@@ -18,18 +18,15 @@ public class Solution {
             return new int[]{-1, -1};
         }
         int loc = binarySearch(nums, 0, nums.length - 1, target);
-        int l = loc, r = loc, z = loc;
+        int l = loc, r = loc;
 
-        while (loc > 0) {
-            if (nums[--loc] == target) {
-                l--;
-            }
+        while (loc > 0 && nums[--loc] == target) {
+            l--;
         }
-        loc = z;
-        while (loc < nums.length - 1) {
-            if (nums[++loc] == target) {
-                r++;
-            }
+
+        loc = r;
+        while (loc < nums.length - 1 && nums[++loc] == target) {
+            r++;
         }
 
         return new int[]{l, r};
