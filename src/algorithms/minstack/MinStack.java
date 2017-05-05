@@ -41,6 +41,9 @@ public class MinStack {
         pop();
         pop();
 
+        // empty stack
+        pop();
+
     }
 
     private static void pop() {
@@ -51,7 +54,7 @@ public class MinStack {
                         min = stack.pop();
                 } else {
                     min = null;
-                    System.out.println("Popped " + i + " and current stack is empty"  + " and stack size is " + stack.size());
+                    System.out.println("Popped " + i + " and current stack is empty");
                     return;
                 }
             }
