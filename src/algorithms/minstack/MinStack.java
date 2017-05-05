@@ -19,6 +19,8 @@ public class MinStack {
         push(3);
         push(7);
         push(2);
+        push(8);
+        push(2);
         push(5);
         push(1);
         push(8);
@@ -37,6 +39,7 @@ public class MinStack {
         pop();
 
         pop();
+        pop();
 
     }
 
@@ -45,13 +48,14 @@ public class MinStack {
             Integer i = stack.pop();
             if (Objects.equals(i, min)) {
                 if (!stack.isEmpty()) {
-                    min = stack.pop();
-                    System.out.println("Popped " + i + " and current min is " + min);
+                        min = stack.pop();
                 } else {
                     min = null;
-                    System.out.println("Popped " + i + " and current stack is empty");
+                    System.out.println("Popped " + i + " and current stack is empty"  + " and stack size is " + stack.size());
+                    return;
                 }
             }
+            System.out.println("Popped " + i + " and current min is " + min + " and stack size is " + stack.size());
         } else {
             System.out.println("Nothing to pop. Stack is empty");
         }
@@ -61,12 +65,12 @@ public class MinStack {
         if (min == null) {
             min = i;
         } else {
-            if (min > i) {
+            if (min >= i) { // if we push current min value , we need to push min again
                 stack.push(min);
                 min = i;
             }
         }
         stack.push(i);
-        System.out.println("Pushed " + i + " and current min is " + min);
+        System.out.println("Pushed " + i + " and current min is " + min  + " and stack size is " + stack.size());
     }
 }
