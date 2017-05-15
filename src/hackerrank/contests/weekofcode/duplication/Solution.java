@@ -12,12 +12,12 @@ public class Solution {
     private static String s = "";
 
     private static String duplication(int x) {
-        return s.substring(x, x+1);
+        return s.substring(x, x + 1);
     }
 
     private static String generate() {
         String st = "0";
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 10; i++) {
             String t = "";
             for (int j = 0; j < st.length(); j++) {
                 if (st.charAt(j) == '0') {
@@ -37,7 +37,7 @@ public class Solution {
         Scanner in = new Scanner(System.in);
         int q = in.nextInt();
         s = generate();
-        System.out.println(s);
+        //System.out.println(s);
         for (int a0 = 0; a0 < q; a0++) {
             int x = in.nextInt();
             String result = duplication(x);
