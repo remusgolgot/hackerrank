@@ -20,5 +20,6 @@ public class Solution {
 
     public static void main(String[] args) {
         System.out.println(isPalindrome(7778777));
+        System.out.println(isPalindrome(77778777));
     }
 }
