@@ -2,6 +2,12 @@ package hackerrank.challenges.algorithms.strings.easy.hackerrankinastring;
 
 import java.util.Scanner;
 
+/**
+ * Created by remus.golgot on 28/04/2018.
+ * <p>
+ * https://www.hackerrank.com/challenges/hackerrank-in-a-string/problem
+ */
+
 public class Solution {
 
     private static String hackerrankInString(String s, String searchFor) {

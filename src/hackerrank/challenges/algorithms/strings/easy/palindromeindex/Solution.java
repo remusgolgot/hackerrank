@@ -2,6 +2,12 @@ package hackerrank.challenges.algorithms.strings.easy.palindromeindex;
 
 import java.util.Scanner;
 
+/**
+ * Created by remus.golgot on 28/04/2018.
+ * <p>
+ * https://www.hackerrank.com/challenges/palindrome-index/problem
+ */
+
 public class Solution {
 
     private static boolean isPalindrome(String s) {

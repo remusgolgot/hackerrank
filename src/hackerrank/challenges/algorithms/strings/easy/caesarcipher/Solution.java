@@ -3,6 +3,11 @@ package hackerrank.challenges.algorithms.strings.easy.caesarcipher;
 import java.util.Objects;
 import java.util.Scanner;
 
+/**
+ * Created by remus.golgot on 28/04/2018.
+ * <p>
+ * https://www.hackerrank.com/challenges/caesar-cipher-1/problem
+ */
 public class Solution {
 
     private static String caesarCipher(String s, int k) {
@@ -11,7 +16,7 @@ public class Solution {
         for (int i = 0; i < s.length(); i++) {
             String c = s.substring(i, i + 1);
             char cc = c.charAt(0);
-            if (c.toLowerCase().charAt(0)<'a' || c.toLowerCase().charAt(0)>'z') {
+            if (c.toLowerCase().charAt(0) < 'a' || c.toLowerCase().charAt(0) > 'z') {
                 sb.append(c);
                 continue;
             }
@@ -23,7 +28,7 @@ public class Solution {
                 }
             }
 
-            if (c != c.toLowerCase()) {
+            if (!Objects.equals(c, c.toLowerCase())) {
                 if (cc + k <= 'Z') {
                     sb.append((char) (cc + k));
                 } else {

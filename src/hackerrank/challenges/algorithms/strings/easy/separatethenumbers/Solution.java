@@ -2,6 +2,12 @@ package hackerrank.challenges.algorithms.strings.easy.separatethenumbers;
 
 import java.util.Scanner;
 
+/**
+ * Created by remus.golgot on 28/04/2018.
+ * <p>
+ * https://www.hackerrank.com/challenges/separate-the-numbers/problem
+ */
+
 public class Solution {
 
     private static void separateNumbers(String s) {

@@ -1,19 +1,26 @@
 package hackerrank.challenges.algorithms.strings.easy.weighteduniformstring;
 
-import java.io.*;
-import java.math.*;
-import java.text.*;
-import java.util.*;
-import java.util.regex.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+/**
+ * Created by remus.golgot on 28/04/2018.
+ * <p>
+ * https://www.hackerrank.com/challenges/weighted-uniform-string/problem
+ */
 
 public class Solution {
 
     /*
      * Complete the weightedUniformStrings function below.
      */
-    static String[] weightedUniformStrings(String s, int[] queries) {
+    private static String[] weightedUniformStrings(String s, int[] queries) {
         String[] result = new String[queries.length];
-        Set<Integer> availableWeights = new HashSet<Integer>();
+        Set<Integer> availableWeights = new HashSet<>();
         availableWeights.add(s.charAt(0) - 'a' + 1);
         int k = 1;
         for (int i = 1; i < s.length(); i++) {
