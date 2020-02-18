@@ -1,6 +1,5 @@
 package crossover;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -18,18 +17,18 @@ public class SuperStack {
 
         List<Integer> auxList = new ArrayList<>();
 
-        for (int i = 0; i < operations.length; i++) {
+        for (String operation : operations) {
 
-            if (operations[i].contains("pop")) {
+            if (operation.contains("pop")) {
                 auxList.remove(auxList.size() - 1);
             }
-            if (operations[i].contains("push")) {
-                auxList.add(Integer.valueOf(operations[i].split(" ")[1]));
+            if (operation.contains("push")) {
+                auxList.add(Integer.valueOf(operation.split(" ")[1]));
             }
-            if (operations[i].contains("inc")) {
+            if (operation.contains("inc")) {
 
-                int e = Integer.parseInt(operations[i].split(" ")[1]);
-                int k = Integer.parseInt(operations[i].split(" ")[2]);
+                int e = Integer.parseInt(operation.split(" ")[1]);
+                int k = Integer.parseInt(operation.split(" ")[2]);
 
                 for (int j = 0; j < e; j++) {
                     int t = auxList.get(j);
@@ -38,13 +37,12 @@ public class SuperStack {
             }
             System.out.println(auxList.size() == 0 ? "EMPTY" : auxList.get(auxList.size() - 1));
         }
-
     }
 
     /**
      * DO NOT MODIFY THIS METHOD!
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
         int _operations_size = Integer.parseInt(in.nextLine().trim());

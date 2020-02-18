@@ -1,4 +1,4 @@
-package hackerrank.challenges.algorithms.implementation.medium.extralongfactorials;
+package algorithms.extralongfactorials;
 
 /**
  * Created by remus.golgot on 12/14/2016.

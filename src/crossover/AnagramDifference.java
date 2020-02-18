@@ -1,7 +1,6 @@
 package crossover;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -19,28 +18,25 @@ public class AnagramDifference {
 
         for (int i = 0; i < a.length; i++) {
 
-            int v1[] = new int[26];
-            int v2[] = new int[26];
+            int[] v = new int[26];
+            int[] w = new int[26];
             String c = a[i];
             String d = b[i];
             if (c.length() != d.length()) {
                 result[i] = -1;
             } else {
                 for (int j = 0; j < c.length(); j++) {
-                    v1[c.charAt(j) - 'a']++;
-
+                    v[c.charAt(j) - 'a']++;
                 }
 
                 for (int j = 0; j < d.length(); j++) {
-                    v2[d.charAt(j) - 'a']++;
-
+                    w[d.charAt(j) - 'a']++;
                 }
 
                 for (int k = 0; k < 26; k++) {
-                    result[i] += Math.abs(v1[k] - v2[k]);
-                    //System.out.println(Math.abs(v1[k] - v2[k]) + " " + result[i]);
+                    result[i] += Math.abs(v[k] - w[k]);
                 }
-                result[i]=result[i]/2;
+                result[i] = result[i] / 2;
             }
 
         }
@@ -51,7 +47,7 @@ public class AnagramDifference {
     /**
      * DO NOT MODIFY THIS METHOD!
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int[] res;
 

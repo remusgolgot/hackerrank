@@ -1,8 +1,6 @@
 package crossover;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -13,23 +11,22 @@ public class MinimizeDifference {
     /**
      * Complete the function below.
      */
-    static int minimize(int[] point, int k) {
+    private static int minimize(int[] point, int k) {
 
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
 
-        for (int i = 0; i < point.length; i++) {
-            if (min > point[i]) {
-                min = point[i];
+        for (int value : point) {
+            if (min > value) {
+                min = value;
             }
-            if (max < point[i]) {
-                max = point[i];
+            if (max < value) {
+                max = value;
             }
-
         }
 
-        if (max-min > k) return Math.abs(max-min-2*k);
-        k=Math.abs(k);
+        if (max - min > k) return Math.abs(max - min - 2 * k);
+        k = Math.abs(k);
         for (int i = 0; i < point.length; i++) {
             if (point[i] - min <= k)
                 point[i] += k;
@@ -45,14 +42,14 @@ public class MinimizeDifference {
             if (max < aPoint) max = aPoint;
         }
 
-        return max-min;
+        return max - min;
 
     }
 
     /**
      * DO NOT MODIFY THIS METHOD!
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
         int _point_size = Integer.parseInt(in.nextLine().trim());
