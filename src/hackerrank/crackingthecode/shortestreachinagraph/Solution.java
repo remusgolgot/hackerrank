@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class Solution {
 
     public static void main(String[] args) {
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named algorithms.firstRepeatedCharacter.Solution. */
         Scanner in = new Scanner(System.in);
         int q = Integer.parseInt(in.nextLine());
         for (int i = 0; i < q; i++) {
