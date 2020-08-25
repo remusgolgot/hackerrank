@@ -5,6 +5,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Created by remus.golgot on 8/21/2020.
+ * <p>
+ * https://www.hackerrank.com/challenges/queens-attack-2/problem
+ */
 public class Solution {
 
     private static int queensAttack(int n, int k, int r_q, int c_q, int[][] obstacles) {
