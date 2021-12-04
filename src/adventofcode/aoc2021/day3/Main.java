@@ -1010,13 +1010,13 @@ public class Main {
                 "100001111011\n" +
                 "111101110001\n";
 
-        String ss[] = s.split("\n");
+        String[] ss = s.split("\n");
         System.out.println(ss.length);
         int[] t = new int[ss[0].length()];
 
-        for (int i = 0; i < ss.length; i++) {
-            for (int j = 0; j < ss[i].length(); j++) {
-                if (ss[i].charAt(j) == '1') {
+        for (String value : ss) {
+            for (int j = 0; j < value.length(); j++) {
+                if (value.charAt(j) == '1') {
                     t[j]++;
                 } else {
                     t[j]--;
@@ -1025,20 +1025,20 @@ public class Main {
         }
 
         for (int i = 0; i < t.length; i++) {
-            if (t[i]<0) {
-                t[i]=0;
+            if (t[i] < 0) {
+                t[i] = 0;
             }
-            if (t[i]>0) {
-                t[i]=1;
+            if (t[i] > 0) {
+                t[i] = 1;
             }
         }
-        int k=0;
-        for (int i = 0; i < t.length; i++) {
-            k=k*2+t[i];
+        int k = 0;
+        for (int j : t) {
+            k = k * 2 + j;
         }
         System.out.println(Arrays.toString(t));
         System.out.println(k);
-        int pp = 4095-2663;
-        System.out.println(k*pp);
+        double pp = Math.pow(2, 12) - 2663 - 1;
+        System.out.println(k * pp);
     }
 }

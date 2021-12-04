@@ -1012,25 +1012,25 @@ public class Main2 {
                 "100001111011\n" +
                 "111101110001\n";
 
-        String ss[] = s.split("\n");
+        String[] ss = s.split("\n");
         System.out.println(ss.length);
         int[] t = new int[ss[0].length()];
         List<String> list1 = Arrays.asList(ss);
         List<String> list2 = Arrays.asList(ss);
 
-        int pos=0;
-        while (list1.size()>1) {
-            int o=0;
-            for (String q: list1
-                 ) {
-                    if (q.charAt(pos) == '1') {
-                        o++;
-                    } else {
-                        o--;
-                    }
+        int pos = 0;
+        while (list1.size() > 1) {
+            int o = 0;
+            for (String q : list1
+            ) {
+                if (q.charAt(pos) == '1') {
+                    o++;
+                } else {
+                    o--;
+                }
             }
-            int pos1=pos;
-            if (o>=0) {
+            int pos1 = pos;
+            if (o >= 0) {
 
                 list1 = list1
                         .stream()
@@ -1040,7 +1040,7 @@ public class Main2 {
                 if (list1.size() == 1) break;
             }
 
-            if (o<0) {
+            if (o < 0) {
                 list1 = list1
                         .stream()
                         .filter(q -> q.charAt(pos1) == '1')
@@ -1050,10 +1050,10 @@ public class Main2 {
 
             pos++;
         }
-        pos =0;
-        while (list2.size()>1) {
-            int o=0;
-            for (String q: list2
+        pos = 0;
+        while (list2.size() > 1) {
+            int o = 0;
+            for (String q : list2
             ) {
                 if (q.charAt(pos) == '1') {
                     o--;
@@ -1061,8 +1061,8 @@ public class Main2 {
                     o++;
                 }
             }
-            int pos1=pos;
-            if (o>0) {
+            int pos1 = pos;
+            if (o > 0) {
                 list2 = list2
                         .stream()
                         .filter(q -> q.charAt(pos1) == '0')
@@ -1070,7 +1070,7 @@ public class Main2 {
                 if (list2.size() == 1) break;
             }
 
-            if (o<=0) {
+            if (o <= 0) {
                 list2 = list2
                         .stream()
                         .filter(q -> q.charAt(pos1) == '1')
@@ -1083,12 +1083,14 @@ public class Main2 {
 
         String u = list1.get(0);
         String v = list2.get(0);
+
         System.out.println(u);
         System.out.println(v);
-//        System.out.println(Arrays.toString(t));
-//        System.out.println(k);
-//        int pp = 4095-2663;
-//        System.out.println(k*pp);
-        System.out.println(2526*1184);
+        int foo = Integer.parseInt(u, 2);
+        int foo2 = Integer.parseInt(v, 2);
+        System.out.println(foo);
+        System.out.println(foo2);
+
+        System.out.println(foo * foo2);
     }
 }

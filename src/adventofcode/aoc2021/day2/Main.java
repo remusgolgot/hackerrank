@@ -1012,8 +1012,8 @@ public class Main {
         String[] ss = s.split("\n");
         System.out.println(ss.length);
         int aim = 0;
-        int hp=0;
-        int dp=0;
+        int hp = 0;
+        int dp = 0;
 
         for (String value : ss) {
             if (value.startsWith("forward")) {
@@ -1030,7 +1030,7 @@ public class Main {
 
         System.out.println(hp);
         System.out.println(dp);
-        System.out.println(dp*hp);
+        System.out.println(dp * hp);
 
     }
 }
