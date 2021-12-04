@@ -1,3 +1,1 @@
-Solutions for problems from Hackerrank and Leetcode
-
-[Test]
+Solutions for problems from HackerRank and LeetCode, as well as other competitions
