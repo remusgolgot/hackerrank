@@ -1,69 +1,44 @@
 package adventofcode.aoc2021.day6;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
+
 
 public class Main2 {
 
-//    public static void main(String[] args) {
-//
-//        String t = "3,4,3,1,2";
-//        String s = "3,5,4,1,2,1,5,5,1,1,1,1,4,1,4,5,4,5,1,3,1,1,1,4,1,1,3,1,1,5,3,1,1,3,1,3,1,1,1,4,1,2,5,3,1,4,2,3,1,1,2,1,1,1,4,1,1,1,1,2,1,1,1,3,1,1,4,1,4,1,5,1,4,2,1,1,5,4,4,4,1,4,1,1,1,1,3,1,5,1,4,5,3,1,4,1,5,2,2,5,1,3,2,2,5,4,2,3,4,1,2,1,1,2,1,1,5,4,1,1,1,1,3,1,5,4,1,5,1,1,4,3,4,3,1,5,1,1,2,1,1,5,3,1,1,1,1,1,5,1,1,1,1,1,1,1,2,2,5,5,1,2,1,2,1,1,5,1,3,1,5,2,1,4,1,5,3,1,1,1,2,1,3,1,4,4,1,1,5,1,1,4,1,4,2,3,5,2,5,1,3,1,2,1,4,1,1,1,1,2,1,4,1,3,4,1,1,1,1,1,1,1,2,1,5,1,1,1,1,2,3,1,1,2,3,1,1,3,1,1,3,1,3,1,3,3,1,1,2,1,3,2,3,1,1,3,5,1,1,5,5,1,2,1,2,2,1,1,1,5,3,1,1,3,5,1,3,1,5,3,4,2,3,2,1,3,1,1,3,4,2,1,1,3,1,1,1,1,1,1";
-//
-//        String[] s1 = t.split(",");
-//
-//        List<Integer> nrs = Arrays.stream(s1).map(Integer::parseInt).collect(Collectors.toList());
-//
-//        long ll = 0;
-//        for (int i = 0; i < nrs.size(); i++) {
-//            ll++;
-//            int k = (18 - nrs.get(i)) / 7;
-//            ll += Math.pow(2, k+1);
-//            System.out.println(ll);
-//        }
-//        System.out.println(ll);
-//
-//    }
-
     public static void main(String[] args) {
 
-        String u = "2";
         String t = "3,4,3,1,2";
         String s = "3,5,4,1,2,1,5,5,1,1,1,1,4,1,4,5,4,5,1,3,1,1,1,4,1,1,3,1,1,5,3,1,1,3,1,3,1,1,1,4,1,2,5,3,1,4,2,3,1,1,2,1,1,1,4,1,1,1,1,2,1,1,1,3,1,1,4,1,4,1,5,1,4,2,1,1,5,4,4,4,1,4,1,1,1,1,3,1,5,1,4,5,3,1,4,1,5,2,2,5,1,3,2,2,5,4,2,3,4,1,2,1,1,2,1,1,5,4,1,1,1,1,3,1,5,4,1,5,1,1,4,3,4,3,1,5,1,1,2,1,1,5,3,1,1,1,1,1,5,1,1,1,1,1,1,1,2,2,5,5,1,2,1,2,1,1,5,1,3,1,5,2,1,4,1,5,3,1,1,1,2,1,3,1,4,4,1,1,5,1,1,4,1,4,2,3,5,2,5,1,3,1,2,1,4,1,1,1,1,2,1,4,1,3,4,1,1,1,1,1,1,1,2,1,5,1,1,1,1,2,3,1,1,2,3,1,1,3,1,1,3,1,3,1,3,3,1,1,2,1,3,2,3,1,1,3,5,1,1,5,5,1,2,1,2,2,1,1,1,5,3,1,1,3,5,1,3,1,5,3,4,2,3,2,1,3,1,1,3,4,2,1,1,3,1,1,1,1,1,1";
 
-        String[] s1 = t.split(",");
+        String[] s1 = s.split(",");
 
         List<Integer> nrs = Arrays.stream(s1).map(Integer::parseInt).collect(Collectors.toList());
-        long l = 0;
-        int magic = 18;
-        Queue<Integer> queue = new ArrayDeque<>(nrs);
 
-        long kk=0;
-        while (!queue.isEmpty()) {
-//            System.out.println("kk = "+ kk);
-            boolean b = kk < nrs.size();
-            kk++;
-            int i = queue.remove();
-            int y=i;
-            System.out.println(i);
-            l += 1;
-            i=i+7;
-            while (i <= magic) {
-                if (!b) {
-                    System.out.println("PUSH " + (i+1) +  " for " + y);
-//                    System.out.println(i+1);
-                    queue.add(i + 1);
-                } else {
-                    System.out.println("PUSH " + (i) +  " for " + y);
-//                    System.out.println(i);
-                    queue.add(i);
-                }
-                i=i+7;
-                b = true;
-            }
+        // store how many fish exist per each day (0-array)
+        long[] days = new long[9];
+        for (Integer nr : nrs) {
+            days[nr - 1]++;
         }
-        System.out.println("DONE");
-        System.out.println(l + nrs.size());
+
+        int magic = 256;
+        for (int i = 0; i < magic - 1; i++) {
+            days[7] += days[0]; // spawn days[0] more fish on day 7.
+
+            // increment the day by shifting the array to the left
+            long temp = days[0];
+            System.arraycopy(days, 1, days, 0, 8);
+            days[8] = temp;
+
+            //after the shift, days[0] fish (first spawn), become day[8]
+        }
+
+        long sum = 0;
+        for (long day : days) {
+            sum += day;
+        }
+        System.out.println(sum);
 
     }
 }
