@@ -1,6 +1,6 @@
 package adventofcode.aoc2021.day9;
 
-import javafx.util.Pair;
+import common.Pair;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -219,8 +219,8 @@ public class Main2 {
         int k = 0;
         while (!stackVisited.isEmpty()) {
             Pair<Integer, Integer> p = stackVisited.pop();
-            int i = p.getKey();
-            int j = p.getValue();
+            int i = p.getFirst();
+            int j = p.getSecond();
             if (visited[i][j] == 1) {
                 continue;
             }
