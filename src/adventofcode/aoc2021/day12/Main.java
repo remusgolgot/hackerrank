@@ -1,7 +1,5 @@
 package adventofcode.aoc2021.day12;
 
-import algorithms.dfsbfs.Solution;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -15,10 +13,8 @@ public class Main {
         String y;
 
         public Edge(String edgeInput) {
-            System.out.println(edgeInput);
             x = edgeInput.split("-")[0];
             y = edgeInput.split("-")[1];
-            System.out.println("done");
         }
 
         public Edge(String x, String y) {
@@ -53,7 +49,6 @@ public class Main {
         while (!visitingStack.empty()) {
             String i = visitingStack.pop();
             if (!visitedList.contains(i)) {
-                visitedList.add(i);
                 List<Edge> elist  = edges.stream().filter(edge -> Objects.equals(edge.x, i) || Objects.equals(edge.y, i))
                         .collect(Collectors.toList());
                 elist.forEach(edge -> {
@@ -92,7 +87,6 @@ public class Main {
         for (int i = 0; i < ss.length; i++) {
             edges.add(new Edge(ss[i]));
         }
-        System.out.println("HERE");
         getDFS("start");
     }
 }

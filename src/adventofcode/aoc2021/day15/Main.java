@@ -1,24 +1,21 @@
 package adventofcode.aoc2021.day15;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+// mincostpath with Left, Right, Bottom and Up moves allowed
+
 public class Main {
 
-    static int[][] mat = new int[100][100];
-    static int[][] mat2 = new int[10][10];
+    private static int[][] mat = new int[100][100];
+    private static int[] dx = {-1, 0, 1, 0};
+    private static int[] dy = {0, 1, 0, -1};
+    private static int ROW = 100;
+    private static int COL = 100;
 
     public static void main(String[] args) {
 
-        String s ="1163751742\n" +
-                "1381373672\n" +
-                "2136511328\n" +
-                "3694931569\n" +
-                "7463417111\n" +
-                "1319128137\n" +
-                "1359912421\n" +
-                "3125421639\n" +
-                "1293138521\n" +
-                "2311944581";
-
-     String t = "0522414939711849132228579816748823728379124311418111161529639822623219297197656312386831265718721211\n" +
+        String t = "0522414939711849132228579816748823728379124311418111161529639822623219297197656312386831265718721211\n" +
                 "7119125991574111336131978938112955121422183362398517132564814661292561181421134141499624511692694112\n" +
                 "3127235291311117732711221595212461287834821864268181236173834391241692536216841911355119911169521283\n" +
                 "1181155152189111774111156796369418892573474529449114243368393188187466226115613499124591912775811129\n" +
@@ -120,51 +117,103 @@ public class Main {
                 "8795124512286141121694662341622161368222432113312766132151575916676412414382618623933742751114159519\n";
 
 
-        String ss[] = s.split("\n");
+        String ss[] = t.split("\n");
         for (int i = 0; i < ss.length; i++) {
-            for (int j = 0; j < 10; j++) {
+            for (int j = 0; j < 100; j++) {
 
-                mat2[i][j] = Integer.parseInt(ss[i].substring(j, j + 1));
+                mat[i][j] = Integer.parseInt(ss[i].substring(j, j + 1));
             }
         }
-        System.out.println(minimumPathSum(mat2));
 
-
+        System.out.println(shortestPath(mat, 100, 100));
     }
 
-    private static int minimumPathSum(int[][] a) {
+    // Custom class for representing row-index, column-index & distance of each cell
 
-        int m = a.length, n = a[0].length;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (i == 0 && j != 0) a[i][j] += a[i][j - 1];
-                if (i != 0 && j == 0) a[i][j] += a[i - 1][j];
-                if (i != 0 && j != 0) a[i][j] += Math.min(a[i - 1][j], a[i][j - 1]);
+    static class Cell {
+        int x;
+        int y;
+        int distance;
+
+        Cell(int x, int y, int distance) {
+            this.x = x;
+            this.y = y;
+            this.distance = distance;
+        }
+    }
+
+    // Custom comparator for inserting cells into Priority Queue
+
+    static class distanceComparator
+            implements Comparator<Cell> {
+        public int compare(Cell a, Cell b) {
+            if (a.distance < b.distance) {
+                return -1;
+            } else if (a.distance > b.distance) {
+                return 1;
+            } else {
+                return 0;
             }
         }
-        return a[m - 1][n - 1];
     }
 
-    static int shortPath(int x, int y, int s) {
+    // Utility method to check whether current cell is inside grid or not
+    static boolean isInsideGrid(int i, int j) {
+        return (i >= 0 && i < ROW &&
+                j >= 0 && j < COL);
+    }
 
-        if (x == 99 && y == 99) {
-            return s;
+    // Method to return shortest path from top-corner to bottom-corner in 2D grid
+    static int shortestPath(int[][] grid, int row,
+                            int col) {
+        int[][] dist = new int[row][col];
+
+        // Initializing distance array by INT_MAX
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                dist[i][j] = Integer.MAX_VALUE;
+            }
         }
 
-        if (x < 99 && y < 99) {
-            s += mat[x][y];
-            return Math.min(shortPath(x + 1, y, s), shortPath(x, y + 1, s));
-        }
+        // Initialized source distance as
+        // initial grid position value
+        dist[0][0] = grid[0][0];
 
-        if (x == 99 && y < 99) {
-            s += mat[x][y];
-            return shortPath(x, y + 1, s);
-        }
-        if (x < 99 && y == 99) {
-            s += mat[x][y];
-            return shortPath(x + 1, y, s);
-        }
-        return 0;
+        PriorityQueue<Cell> pq = new PriorityQueue<Cell>(
+                row * col, new distanceComparator());
 
+        // Insert source cell to priority queue
+        pq.add(new Cell(0, 0, dist[0][0]));
+        while (!pq.isEmpty()) {
+            Cell curr = pq.poll();
+            for (int i = 0; i < 4; i++) {
+                int rows = curr.x + dx[i];
+                int cols = curr.y + dy[i];
+
+                if (isInsideGrid(rows, cols)) {
+                    if (dist[rows][cols] >
+                            dist[curr.x][curr.y] +
+                                    grid[rows][cols]) {
+
+                        // If Cell is already been reached once,
+                        // remove it from priority queue
+                        if (dist[rows][cols] != Integer.MAX_VALUE) {
+                            Cell adj = new Cell(rows, cols,
+                                    dist[rows][cols]);
+
+                            pq.remove(adj);
+                        }
+
+                        // Insert cell with updated distance
+                        dist[rows][cols] = dist[curr.x][curr.y] +
+                                grid[rows][cols];
+
+                        pq.add(new Cell(rows, cols,
+                                dist[rows][cols]));
+                    }
+                }
+            }
+        }
+        return dist[row - 1][col - 1];
     }
 }
