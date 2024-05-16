@@ -2,6 +2,16 @@ package hackerrank.projecteuler.p1;
 
 import java.util.Scanner;
 
+// https://www.hackerrank.com/contests/projecteuler/challenges/euler001/problem
+
+/**
+ * Multiples of 3 and 5
+ * <p>
+ * If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9
+ * The sum of these multiples is 23.
+ * <p>
+ * Find the sum of all the multiples of 3 or 5 below N.
+ */
 public class Solution {
 
     public static void main(String[] args) {
@@ -17,6 +27,9 @@ public class Solution {
             long m5 = 5 * (n5 * (n5 + 1) / 2);
             long m15 = 15 * (n15 * (n15 + 1) / 2);
             System.out.println(m3 + m5 - m15);
+            System.out.println(m3);
+            System.out.println(m5);
+            System.out.println(m15);
         }
 
     }
