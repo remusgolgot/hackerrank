@@ -1,10 +1,22 @@
 package adventofcode.aoc2024.day2;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * https://adventofcode.com/2024/day/2
  */
-public class Main {
+public class Main2 {
     public static void main(String[] args) {
+        String u = "7 6 4 2 1\n" +
+                "1 2 7 8 9\n" +
+                "9 7 6 2 1\n" +
+                "1 3 2 4 5\n" +
+                "8 6 4 4 1\n" +
+                "1 3 6 7 9";
+
+
         String s = "35 37 38 41 43 41\n" +
                 "64 66 69 71 72 72\n" +
                 "45 47 50 51 52 53 55 59\n" +
@@ -1013,6 +1025,17 @@ public class Main {
             boolean safe = isSafe(ss[i]);
             if (safe) {
                 count++;
+                continue;
+            }
+            String[] t = ss[i].split(" ");
+            for (int j = 0; j < t.length; j++) {
+                List<String> list = new ArrayList<>(Arrays.asList(t));
+                list.remove(j);
+                boolean safeWithMistakes = isSafe(String.join(" ", list));
+                if (safeWithMistakes) {
+                    count++;
+                    break;
+                }
             }
         }
         System.out.println(count);
