@@ -30,28 +30,22 @@ public class Solution2 {
 
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == ')') {
-                if (stack.size() >0 && stack.peek() == '(') {
+                if (!stack.isEmpty() && stack.peek() == '(') {
                     stack.pop();
                 } else return false;
-            }
-
-            else if (s.charAt(i) == ']') {
-                if (stack.size() >0 && stack.peek() == '[') {
+            } else if (s.charAt(i) == ']') {
+                if (!stack.isEmpty() && stack.peek() == '[') {
                     stack.pop();
                 } else return false;
-            }
-
-            else if (s.charAt(i) == '}') {
-                if (stack.size() >0 && stack.peek() == '{') {
+            } else if (s.charAt(i) == '}') {
+                if (!stack.isEmpty() && stack.peek() == '{') {
                     stack.pop();
                 } else return false;
-            }
-
-            else stack.push(s.charAt(i));
+            } else stack.push(s.charAt(i));
 
         }
 
-        return stack.size() <= 0;
+        return stack.isEmpty();
 
     }
 }

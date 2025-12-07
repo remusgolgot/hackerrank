@@ -1,7 +1,6 @@
 package algorithms.dfsbfs;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Depth First and Breadth First searches in a given graph
@@ -56,10 +55,8 @@ public class Solution {
                 Integer i = visitingStack.pop();
                 if (!visitedList.contains(i)) {
                     visitedList.add(i);
-                    List<Edge> elist  = edges.stream().filter(edge -> edge.x == i || edge.y == i).collect(Collectors.toList());
-                    elist.forEach(edge -> {
-                        visitingStack.push(edge.x == i ? edge.y : edge.x);
-                    });
+                    List<Edge> elist  = edges.stream().filter(edge -> edge.x == i || edge.y == i).toList();
+                    elist.forEach(edge -> visitingStack.push(edge.x == i ? edge.y : edge.x));
                 }
             }
             System.out.println(visitedList);
@@ -75,7 +72,7 @@ public class Solution {
                 Integer i = visitingQueue.remove();
                 if (!visitedList.contains(i)) {
                     visitedList.add(i);
-                    List<Edge> elist = edges.stream().filter(edge -> edge.x == i || edge.y == i).collect(Collectors.toList());
+                    List<Edge> elist = edges.stream().filter(edge -> edge.x == i || edge.y == i).toList();
                     elist.forEach(edge -> {
                         int e = edge.x == i ? edge.y : edge.x;
                         visitingQueue.add(e);
